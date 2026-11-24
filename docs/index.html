@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ер Төстік: AI Шытырман Оқиғасы</title>
+  <meta name="description" content="Ер Төстік: A* жол іздеу, Minimax шайқас, Gemini LLM ақыл-кеңес. Веб-қосымша, GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark">ЕТ</span>
+        <span class="brand__name">Ер Төстік AI</span>
+      </a>
+      <nav class="nav">
+        <a href="#features">Мүмкіндіктер</a>
+        <a href="#ai">AI тақырыптары</a>
+        <a href="#aidetail">AI талдау</a>
+        <a href="#architecture">Архитектура</a>
+        <a href="#stack">Стек</a>
+        <a href="#run">Іске қосу</a>
+        <a href="#demo">Демо</a>
+        <a class="btn btn--ghost" href="play.html">Ойын</a>
+        <a class="btn btn--ghost" href="https://github.com/Tleukhanov/beknur_ai" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <span class="eyebrow">HTML + CSS + JavaScript</span>
+          <h1>Ер Төстік шытырман оқиғасы,<br/>нағыз AI арқылы.</h1>
+          <p class="lead">
+            Жер асты патшалығының лабиринтінде A* жол іздеу, айдаһармен тактикалық шайқаста Minimax,
+            ал дана қариядан кеңес алу үшін Gemini LLM қолданатын веб-қосымша.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="play.html">Ойынды бастау</a>
+            <a class="btn btn--secondary" href="https://github.com/Tleukhanov/beknur_ai" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="hero__stats">
+            <div><strong>3</strong><span>AI тақырыбы</span></div>
+            <div><strong>3</strong><span>интерактивті модуль</span></div>
+            <div><strong>1</strong><span>веб-қосымша</span></div>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <svg class="map" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ер Төстік карта превью">
+            <defs>
+              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#eff6ff"/>
+                <stop offset="100%" stop-color="#dbeafe"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#bg)"/>
+            <!-- grid -->
+            <g stroke="#bfdbfe" stroke-width="1" opacity="0.6">
+              <line x1="0" y1="30" x2="400" y2="30"/><line x1="0" y1="60" x2="400" y2="60"/>
+              <line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="120" x2="400" y2="120"/>
+              <line x1="0" y1="150" x2="400" y2="150"/><line x1="0" y1="180" x2="400" y2="180"/>
+              <line x1="0" y1="210" x2="400" y2="210"/><line x1="0" y1="240" x2="400" y2="240"/>
+              <line x1="0" y1="270" x2="400" y2="270"/>
+              <line x1="40" y1="0" x2="40" y2="300"/><line x1="80" y1="0" x2="80" y2="300"/>
+              <line x1="120" y1="0" x2="120" y2="300"/><line x1="160" y1="0" x2="160" y2="300"/>
+              <line x1="200" y1="0" x2="200" y2="300"/><line x1="240" y1="0" x2="240" y2="300"/>
+              <line x1="280" y1="0" x2="280" y2="300"/><line x1="320" y1="0" x2="320" y2="300"/>
+              <line x1="360" y1="0" x2="360" y2="300"/>
+            </g>
+            <!-- path -->
+            <polyline points="60,60 100,60 100,100 140,100 140,140 180,140 180,180 220,180 220,220 260,220" stroke="#2563eb" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <!-- walls -->
+            <rect x="130" y="50" width="20" height="20" fill="#111111"/>
+            <rect x="170" y="90" width="20" height="20" fill="#111111"/>
+            <rect x="210" y="130" width="20" height="20" fill="#111111"/>
+            <!-- start/end -->
+            <circle cx="60" cy="60" r="12" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+            <circle cx="260" cy="220" r="12" fill="#1e3a8a" stroke="#111111" stroke-width="2"/>
+            <!-- dragon -->
+            <text x="320" y="90" font-size="40" text-anchor="middle">🐉</text>
+            <!-- elder -->
+            <text x="320" y="230" font-size="40" text-anchor="middle">👴</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section__title">Мүмкіндіктер</h2>
+        <p class="section__sub">Барлығы браузерде жұмыс істейді. Сервер қажет емес.</p>
+        <div class="grid grid--3">
+          <article class="card">
+            <h3>A* жол іздеу</h3>
+            <p>10×10 торда бастапқы және соңғы нүктелерді қойып, қабырғалар сызыңыз. A* алгоритмі ең қысқа жолды табады.</p>
+          </article>
+          <article class="card">
+            <h3>Minimax шайқас</h3>
+            <p>Кезекпен жүретін тактикалық шайқас. Айдаһар Minimax арқылы 4 қадам алға есептеп, өзіне тиімді шешім қабылдайды.</p>
+          </article>
+          <article class="card">
+            <h3>Gemini LLM қария</h3>
+            <p>Google Gemini API арқылы жұмыс істейтін дана қария. Қазақ ертегілері стилінде қысқа жауап береді.</p>
+          </article>
+          <article class="card">
+            <h3>Интерактивті интерфейс</h3>
+            <p>Ешқандай орнату қажет емес. Браузерде ашып, бірден ойнауға болады.</p>
+          </article>
+          <article class="card">
+            <h3>Таза веб-стек</h3>
+            <p>HTML, CSS, JavaScript. Фреймворксыз, сборкасыз. GitHub Pages арқылы жарияланады.</p>
+          </article>
+          <article class="card">
+            <h3>Ашық код</h3>
+            <p>Барлық код GitHub-та. Оқуға, өзгертуге, кеңейтуге еркін.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai" class="section section--dark">
+      <div class="container">
+        <h2 class="section__title">AI тақырыптары (3 апта)</h2>
+        <p class="section__sub">Теория емес, нақты код ретінде жүзеге асырылған.</p>
+        <div class="grid grid--3">
+          <article class="card card--dark">
+            <span class="badge">1-апта</span>
+            <h3>Интеллектуалды агенттер</h3>
+            <p>Ер Төстік пен Айдаһар — ортаға реакция беретін агенттер. Күй машинасы: шабуыл, қорғану, емделу.</p>
+          </article>
+          <article class="card card--dark">
+            <span class="badge">2-апта</span>
+            <h3>Іздеу және A*</h3>
+            <p>Тордағы A* алгоритмі: эвристика (Манхэттен қашықтығы), ашық/жабық жиындар, ең қысқа жол.</p>
+          </article>
+          <article class="card card--dark">
+            <span class="badge">4-апта</span>
+            <h3>Адверсариалды іздеу</h3>
+            <p>Minimax: Айдаһар өзіне ең тиімді әрекетті таңдайды, ал ойыншының ең жақсы қарсы әрекетін есептейді.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="aidetail" class="section">
+      <div class="container">
+        <h2 class="section__title">AI талдау</h2>
+        <p class="section__sub">Әр тақырып кодта қалай жүзеге асырылған.</p>
+        <div class="grid grid--3">
+          <article class="card">
+            <h3>A* жол іздеу</h3>
+            <p>Тордағы A*: эвристика, көршілерді қарау, жабық жиын, жолды қалпына келтіру. Қабырғалардан айналып өтеді.</p>
+          </article>
+          <article class="card">
+            <h3>Minimax + Alpha-Beta (идея)</h3>
+            <p>Тереңдік 4 деңгейде шешім ағашы. Бағалау функциясы: Айдаһар HP − Ер Төстік HP. Қажет болса емделу.</p>
+          </article>
+          <article class="card">
+            <h3>Generative AI (LLM)</h3>
+            <p>Google Gemini API: systemInstruction арқылы «дана қария» рөлі. Қазақ тілінде, ертегі стилінде 1–3 сөйлем.</p>
+          </article>
+          <article class="card">
+            <h3>Күй машинасы</h3>
+            <p>Шайқаста күйлер: шабуыл, қорғану, емделу. Әр әрекет күйді өзгертеді, HP жаңартылады.</p>
+          </article>
+          <article class="card">
+            <h3>Эвристика</h3>
+            <p>Манхэттен қашықтығы: |x1−x2| + |y1−y2|. Тор үшін ең қарапайым және дәл эвристика.</p>
+          </article>
+          <article class="card">
+            <h3>API интеграциясы</h3>
+            <p>fetchWithRetry: 429 қатесінде экспоненциалды күту. Чат тарихы контекст ретінде жіберіледі.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section section--dark">
+      <div class="container">
+        <h2 class="section__title">Архитектура</h2>
+        <p class="section__sub">Бір HTML файлдағы модульді құрылым.</p>
+        <pre class="code"><code>index.html      лендинг (осы бет)
+play.html       интерактивті ойын
+style.css       жалпы стильдер
+script.js       ленивая загрузка видео
+
+Ойын модульдері (play.html ішінде):
+A* module       тор, эвристика, іздеу
+Minimax module  шайқас, шешім ағашы
+LLM module      Gemini API, чат тарихы
+UI module       табтар, модальдар, рендер</code></pre>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <div class="container">
+        <h2 class="section__title">Технологиялық стек</h2>
+        <div class="stack">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript (ES6)</span>
+          <span>Tailwind (оригинал)</span>
+          <span>Google Gemini API</span>
+          <span>GitHub Pages</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="run" class="section section--dark">
+      <div class="container">
+        <h2 class="section__title">Іске қосу</h2>
+        <pre class="code"><code>git clone https://github.com/Tleukhanov/beknur_ai.git
+cd beknur_ai
+python3 -m http.server 8000
+# немесе docs/ ішінде:
+cd docs && python3 -m http.server 8000</code></pre>
+        <p class="section__sub">Содан кейін http://localhost:8000/docs/ ашыңыз. GitHub Pages: https://tleukhanov.me/beknur_ai/ (немесе репо Pages URL).</p>
+      </div>
+    </section>
+
+    <section id="demo" class="section">
+      <div class="container">
+        <h2 class="section__title">Демо</h2>
+        <p class="section__sub">Ойынды браузерде тікелей көру үшін «Ойынды бастау» батырмасын басыңыз.</p>
+        <div class="video">
+          <div class="video__placeholder">
+            <div>
+              <span>▶</span>
+              <p>Интерактивті демо</p>
+              <a class="btn btn--primary" href="play.html">Ойынды ашу</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <h2 class="section__title">Тестілеу</h2>
+        <p class="section__sub">Ручное тестілеу: A* торы, Minimax шайқас, Gemini чат.</p>
+        <pre class="code"><code># Браузерде play.html ашып, үш табты тексеріңіз:
+# 1. A* — жол іздеу
+# 2. Шайқас — Minimax AI
+# 3. Чат — Gemini API</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© Yeraly Tleukhanov · Ер Төстік AI</span>
+      <a href="https://github.com/Tleukhanov/beknur_ai" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
